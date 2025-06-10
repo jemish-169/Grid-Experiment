@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Grid Exp</string>
+    <string name="grid">Grid</string>
+    <string name="history">History</string>
 </resources>
