@@ -16,7 +16,8 @@
         <activity
             android:name=".core.presentation.main_screen.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.GridExp">
+            android:theme="@style/Theme.GridExp"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

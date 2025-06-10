@@ -17,7 +17,7 @@ val lightOrange = Color(0xFFFFF8E4)
 val sky = Color(0xFF3B82F6)
 val lightSky = Color(0xFFE9F2FF)
 
-val Grey = Color(0xFF42474D)
+val grey = Color(0xFF42474D)
 val pencilGrey = Color(0xFFD2D2D2)
 
 val red = Color(0xFFF63838)

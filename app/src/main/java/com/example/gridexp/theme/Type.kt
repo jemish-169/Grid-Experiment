@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 import com.example.gridexp.R
 
 
-object FontFamilies {
+object GridAppFontFamily {
     val InterFont = FontFamily(
         Font(R.font.inter_bold, FontWeight.Bold),
         Font(R.font.inter_light, FontWeight.Light),
