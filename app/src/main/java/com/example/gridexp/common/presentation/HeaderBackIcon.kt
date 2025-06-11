@@ -28,7 +28,7 @@ fun HeaderBackIcon(
         IconButton(
             modifier = Modifier
                 .clip(CircleShape)
-                .background(MaterialTheme.colorScheme.tertiary.copy(0.2f)),
+                .background(MaterialTheme.colorScheme.tertiary.copy(0.02f)),
             onClick = onBackClick
         ) {
             Icon(

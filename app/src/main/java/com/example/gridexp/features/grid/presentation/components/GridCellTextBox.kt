@@ -1,6 +1,7 @@
 package com.example.gridexp.features.grid.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -30,6 +32,10 @@ fun GridCellTextBox(
             .height(100.dp)
             .background(
                 color = style.backgroundColor,
+                shape = RoundedCornerShape(style.cornerRadius)
+            )
+            .border(
+                border = style.borderStroke,
                 shape = RoundedCornerShape(style.cornerRadius)
             )
             .padding(12.dp)
@@ -53,7 +59,9 @@ fun GridCellTextBox(
             text = text,
             style = textStyle,
             maxLines = 3,
-            overflow = TextOverflow.Ellipsis
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier
+                .testTag("gridItem")
         )
     }
 }
