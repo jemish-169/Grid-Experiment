@@ -77,6 +77,7 @@ dependencies {
     // compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.ui.test.junit4.android)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 
     // tooling and preview
@@ -108,6 +109,7 @@ dependencies {
     androidTestImplementation(libs.truth)
     debugImplementation(libs.androidx.ui.test.manifest)
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.ui.test.manifest)
 
     // Ui and graphics
     implementation(libs.androidx.ui)
@@ -123,11 +125,15 @@ dependencies {
     // Hilt
     implementation(libs.dagger.hilt.android)
     ksp(libs.dagger.hilt.compiler)
+    kspAndroidTest(libs.dagger.hilt.compiler)
+    androidTestImplementation(libs.hilt.android.testing)
+
 
     // Hilt extension for compose
     implementation(libs.androidx.hilt.navigation.compose)
+    androidTestImplementation(libs.androidx.hilt.navigation.compose)
 
-     // Splash API
+    // Splash API
     implementation(libs.androidx.core.splashscreen)
 
     // coil lib to load images
