@@ -17,7 +17,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -29,6 +28,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.gridexp.R
 import com.example.gridexp.common.domain.state.AppState
 import com.example.gridexp.common.presentation.HeaderBackIcon
@@ -41,8 +41,8 @@ fun GridScreen(
     onBackClick: () -> Unit,
     gridViewModel: IGridViewModel = hiltViewModel<GridViewModel>()
 ) {
-    val inputText by gridViewModel.inputText.collectAsState()
-    val saveImage by gridViewModel.saveImageState.collectAsState()
+    val inputText by gridViewModel.inputText.collectAsStateWithLifecycle()
+    val saveImage by gridViewModel.saveImageState.collectAsStateWithLifecycle()
     val context = LocalContext.current
 
     LaunchedEffect(saveImage) {
@@ -95,7 +95,7 @@ fun GridScreen(
             )
             Button(
                 content = {
-                    Text(text = "Save")
+                    Text(text = stringResource(R.string.save))
                 },
                 enabled = inputText.isNotEmpty() && (saveImage !is AppState.Loading),
                 onClick = { gridViewModel.saveImage() }
