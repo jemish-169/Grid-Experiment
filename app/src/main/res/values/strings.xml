@@ -4,4 +4,11 @@
     <string name="history">History</string>
     <string name="back_icon">Back Icon</string>
     <string name="input_text">Input Text</string>
+    <string name="please_enter_some_text">Please enter some Text</string>
+    <string name="image_saved_successfully_at">Image saved successfully at: %1$s</string>
+    <string name="failed_to_save_image">Failed to save image: %1$s</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="save">Save</string>
+    <string name="failed_to_load_images">Failed to load images: %1$s</string>
+    <string name="no_images_are_saved">No Images are saved!</string>
 </resources>
