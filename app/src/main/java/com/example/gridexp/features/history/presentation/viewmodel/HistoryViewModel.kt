@@ -6,6 +6,7 @@ import com.example.gridexp.R
 import com.example.gridexp.common.domain.state.AppState
 import com.example.gridexp.di.ResourceManager
 import com.example.gridexp.features.history.domain.HistoryRepository
+import com.example.gridexp.features.history.domain.ImageRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -19,6 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HistoryViewModel @Inject constructor(
     private val historyRepository: HistoryRepository,
+    private val imageRepository: ImageRepository,
     private val resourceManager: ResourceManager
 ) : ViewModel(), IHistoryViewModel {
 
@@ -32,7 +34,9 @@ class HistoryViewModel @Inject constructor(
     private fun getImageList() {
         viewModelScope.launch {
             try {
-                val imageListRes = historyRepository.getImagesFromInternalStorage()
+                val imageListRes =
+//                  historyRepository.getImagesFromInternalStorage() // --->> getting image from internal storage
+                    imageRepository.getImagesFromRoom() // --->> getting image from Room DB
                 imageListRes.fold(
                     onSuccess = { imageList ->
                         _imageListState.update {

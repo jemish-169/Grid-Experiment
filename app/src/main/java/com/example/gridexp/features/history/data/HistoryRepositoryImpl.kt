@@ -1,16 +1,13 @@
 package com.example.gridexp.features.history.data
 
 import android.content.Context
-import com.example.gridexp.R
-import com.example.gridexp.di.ResourceManager
 import com.example.gridexp.features.history.domain.HistoryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class HistoryRepositoryImpl @Inject constructor(
-    private val context: Context,
-    private val resourceManager: ResourceManager
+    private val context: Context
 ) : HistoryRepository {
 
     override suspend fun getImagesFromInternalStorage(): Result<List<String>> {
@@ -30,11 +27,7 @@ class HistoryRepositoryImpl @Inject constructor(
                 }
                 Result.success(imageFiles)
             } catch (e: Exception) {
-                Result.failure(
-                    Exception(
-                        e.message ?: resourceManager.getString(R.string.something_went_wrong)
-                    )
-                )
+                Result.failure(e)
             }
         }
     }
